@@ -15,7 +15,7 @@ class DbConnectionService {
     public $conn;
     private $error;
 
-       function __construct() {
+      public function __construct() {
            try {
                $connectionString = "mysql:host=$this->serverName;dbname=$this->databaseName";
                $options = [
@@ -28,5 +28,9 @@ class DbConnectionService {
                $this->error = $ex->getMessage();
                echo "Error: $this->error";
            }
+       }
+
+       public function __desctruct() {
+           $this->conn = null;
        }
 }
